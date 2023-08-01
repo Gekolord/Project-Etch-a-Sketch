@@ -1,0 +1,14 @@
+.canvas {
+    display: flex;
+    width: 360px;
+    height: 360px;
+    flex-wrap: wrap;
+}
+
+.pixel {
+    flex: 1 1 auto;
+}
+
+.black {
+    background-color: black;
+}
