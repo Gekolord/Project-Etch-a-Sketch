@@ -43,7 +43,7 @@ function createGrid (gridVolume, parentNode, gridClass) {
 function createNewGrid () {
     let volume = 1
     while (true)  {
-        volume = prompt("Please specify volume of grid (bigger than 0 and lesser than 65");
+        volume = prompt("Please specify volume of grid (bigger than 0 and lesser than 101");
         if (volume > 0 && volume < 101) {
             break;
         }
