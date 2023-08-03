@@ -7,7 +7,7 @@ for (let i = 0; i < 16;i++) {
     }
 }
 
-const pixels = document.querySelectorAll('.pixel');
+let pixels = document.querySelectorAll('.pixel');
 
 
 pixels.forEach((pixel) => {
@@ -43,13 +43,14 @@ function createGrid (gridVolume, parentNode, gridClass) {
 function createNewGrid () {
     let volume = 1
     while (true)  {
-        volume = prompt("Please specify volume of grid (bigger than 0 and lesser than 100");
+        volume = prompt("Please specify volume of grid (bigger than 0 and lesser than 65");
         if (volume > 0 && volume < 101) {
             break;
         }
     }
     removeGrid(pixels, canvas);
     createGrid(volume, canvas, "pixel");
+    return volume;
 }
 
 const newGrid = document.querySelector('.newGrid');
@@ -57,5 +58,13 @@ const newGrid = document.querySelector('.newGrid');
 // add an event listener to button that creates new grid on click
 
 newGrid.addEventListener('click', () =>{
-    createNewGrid()
+    const wid = createNewGrid()
+    pixels = document.querySelectorAll('.pixel');
+    pixels.forEach((pixel) => {
+        pixel.style.width = `${360 / wid}px`
+        // for each one add a 'mouseover' listener
+        pixel.addEventListener('mouseover', () => {
+            pixel.classList.add('black');
+        });
+      });
 })
