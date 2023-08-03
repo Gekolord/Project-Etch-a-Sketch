@@ -18,7 +18,7 @@ pixels.forEach((pixel) => {
     });
   });
 
-const newGrid = document.querySelector('.newGrid');
+
 
 // removes a grid of specified selector
 
@@ -52,4 +52,10 @@ function createNewGrid () {
     createGrid(volume, canvas, "pixel");
 }
 
-createNewGrid()
+const newGrid = document.querySelector('.newGrid');
+
+// add an event listener to button that creates new grid on click
+
+newGrid.addEventListener('click', () =>{
+    createNewGrid()
+})
